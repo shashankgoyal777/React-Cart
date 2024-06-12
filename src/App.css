@@ -15,7 +15,7 @@ header{
   padding: 0 60px;
 }
 .main{
-  border: 1px solid;
+  /* border: 1px solid;  */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ header{
   gap: 20px;
 }
 .card{
-  height: 7rem;
+  height: 8rem;
   /* border: 1px solid black; */
   width: 80%;
   display: flex;
@@ -32,17 +32,19 @@ header{
   align-items: center;
 }
 .card img{
-  height: 100px ;
-  width: 100px;
-
+  height: 140px ;
   }
   .product-details{
     width: 50%;
+    
   }
+
+  /* Remove Button */
   .product-details span{
     color: #4260e6;
     cursor: pointer;
   }
+
   .product-details span:hover{
     color: #0c35ea;
    

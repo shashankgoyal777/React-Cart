@@ -18,9 +18,7 @@ function App() {
       temp += product.amount;
     });
     setCartCount(temp);
- 
   }, [products]);
-
 
   console.log(products);
 
@@ -30,8 +28,6 @@ function App() {
     });
     setProducts(removedItems);
   }
-
- 
 
   function handleIncrement(toIncrement) {
     // console.log(toDecrement)
@@ -69,14 +65,19 @@ function App() {
     setProducts([]);
   }
 
+  let t = 0;
+  products.map((x) => {
+    // let p=x.price.toString()
+    // p=p.slice(0,(p.indexOf('.')+3))
+    // p=parseFloat(p)
+    // console.log(p)
 
-   
-  let t=0;
-  products.map((x)=>{
-    t+=x.amount*x.price;
-      })
+    t += x.amount * x.price;
+    t=t.toString();
+    t=t.slice(0,(t.indexOf(".")+3));
+    t=parseFloat(t);
 
-
+  });
 
   return (
     <>
@@ -85,7 +86,10 @@ function App() {
         <br></br>
         <br></br>
 
-        {products.map((product) => {
+        {
+        products.length>0?
+        
+        products.map((product) => {
           return (
             <div className="card">
               <img src={product.img} alt="" />
@@ -121,17 +125,25 @@ function App() {
               </div>
             </div>
           );
-        })}
+        })
+        :
+        "It looks like your bag is empty... "
+      }
       </div>
+      {
+
+      products.length>0?
+     
+
       <footer>
         <div className="total-div">
           <span>Total</span>
-          <p>
-          {t}
-          </p>
+          <p>${t}</p>
         </div>
         <button onClick={clearCart}>Clear Cart</button>
       </footer>
+       :""
+      }
     </>
   );
 }
